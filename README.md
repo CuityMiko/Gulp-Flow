@@ -20,12 +20,12 @@ Gulp 严格的插件指南确保插件如你期望的那样简洁高质得工作
 
 **前端工作流**
 
-##场景
+## 场景
 
 vue-cli ??? 自动打包
 vue build打包时候其实就是在文件的合并，压缩，优化，到dist文件夹
 
-##开始
+## 开始
 
     yarn add gulp -S
 
@@ -37,13 +37,13 @@ gulp.task('hello', function () {
   console.log('Gulp负责前端开发阶段的任务，文件的合并，压缩，优化')
 })
 ```
-###执行任务：
+### 执行任务：
 	gulp hello
   
-###任务数组,默认就不用写了
+### 任务数组,默认就不用写了
 	gulp.task('default', ['hello'])
     
-##复制
+## 复制
 ```javascript
 // src 代表根目录
 gulp.task('copy-index', function() {
@@ -52,7 +52,7 @@ gulp.task('copy-index', function() {
 })
 ```
 
-##直接打包整个文件夹的拷贝和处理
+## 直接打包整个文件夹的拷贝和处理
 ```javascript
 // *.*就是全部文件
 // */* 走一级，匹配下一层
@@ -63,7 +63,7 @@ gulp.task('images', function () {
 })
 ```
 
-##打包多个
+## 打包多个
 ```
 gulp.task('data', function () {
   return gulp.src(['xml/*.xml','json/*.json'])
@@ -71,7 +71,7 @@ gulp.task('data', function () {
 })
 ```
 
-##跳过一些文件
+## 跳过一些文件
 
 排除类似secret-01.json的文件
 ```
@@ -79,7 +79,7 @@ return gulp.src(['xml/*.xml','json/*.json','!json/secret-*.json'])
     .pipe(gulp.dest('dist/data'))
 ```
 
-##监视watch
+## 监视watch
 
 ```javascript
 gulp.task('copy-index', function() {
@@ -98,7 +98,7 @@ gulp.task('watch', function () {
 gulp watch
 ```
 
-##sass转css
+## sass转css
 安装包
 	yarn add gulp-sass -S
     npm i gulp-sass --save-dev
@@ -112,7 +112,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('dist/css'))
 })
 ```
-##热更新
+## 热更新
 	yarn add --dev gulp-connect
 然后
 ```javascript
@@ -139,7 +139,7 @@ gulp.task('copy-index', function() {
 gulp.task('default', ['server', 'watch'])
 ```
 
-##合并文件，优化减少并发
+## 合并文件，优化减少并发
 	yarn add --dev gulp-concat
     
 <script></script>
@@ -156,7 +156,7 @@ gulp.task('script', function() {
 })
 ```
 
-##压缩重命名
+## 压缩重命名
 	const uglify = require('gulp-uglify')
 	const rename = require('gulp-rename')
     
@@ -173,8 +173,10 @@ gulp.task('script', function() {
 
 ##压缩css
 	const minify = require('gulp-minify-css')
- ```javascript
- gulp.task('minify', function() {
+ ```
+ 
+```
+gulp.task('minify', function() {
   gulp.src('stylesheet/**/*.scss')
     .pipe(sass())
     .pipe(gulp.dest('dist/css'))
@@ -183,9 +185,10 @@ gulp.task('script', function() {
     .pipe(gulp.dest('dist/css'))
 })
 ```
+## 图片优化
 
-##图片优化
 	const imagemin = require('gulp-imagemin')
+	
 ```javascript
 gulp.task('imagemin', function() {
   return gulp.src('images/icons/*.{png,jpg}')
