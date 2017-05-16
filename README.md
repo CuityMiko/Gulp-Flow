@@ -1,7 +1,7 @@
 # Gulp-Flow
 🐯前端工作流-合并、压缩、优化
 # 启动项目
-```
+```javascript
 npm install
 ```
 
@@ -29,7 +29,7 @@ vue build打包时候其实就是在文件的合并，压缩，优化，到dist�
 
     yarn add gulp -S
 
-```
+```javascript
 const gulp = require('gulp')
 
 // 任务名、任务事
@@ -44,7 +44,7 @@ gulp.task('hello', function () {
 	gulp.task('default', ['hello'])
     
 ##复制
-```
+```javascript
 // src 代表根目录
 gulp.task('copy-index', function() {
   return gulp.src('index.html')
@@ -53,7 +53,7 @@ gulp.task('copy-index', function() {
 ```
 
 ##直接打包整个文件夹的拷贝和处理
-```
+```javascript
 // *.*就是全部文件
 // */* 走一级，匹配下一层
 // **/* 所有都要
@@ -81,7 +81,7 @@ return gulp.src(['xml/*.xml','json/*.json','!json/secret-*.json'])
 
 ##监视watch
 
-```
+```javascript
 gulp.task('copy-index', function() {
   return gulp.src('index.html')
     .pipe(gulp.dest('dist'))
@@ -94,7 +94,7 @@ gulp.task('watch', function () {
 ```
 
 开放监听
-```
+```javascript
 gulp watch
 ```
 
@@ -105,7 +105,7 @@ gulp watch
 	yarn add --dev gulp-sass
     
 pipe过一下
-```
+```javascript
 gulp.task('sass', function() {
   gulp.src('stylesheet/**/*.scss')
     .pipe(sass())
@@ -115,7 +115,7 @@ gulp.task('sass', function() {
 ##热更新
 	yarn add --dev gulp-connect
 然后
-```
+```javascript
 const connect = require('gulp-connect')
 
 gulp.task('server',function() {
@@ -147,7 +147,7 @@ gulp.task('default', ['server', 'watch'])
 
 这样引入？？有两个请求哦！！减少请求数量！
 
-```
+```javascript
 gulp.task('script', function() {
   return gulp.src(['javascripts/jquery.js',
    'javascripts/modernizr.js'])
@@ -160,7 +160,7 @@ gulp.task('script', function() {
 	const uglify = require('gulp-uglify')
 	const rename = require('gulp-rename')
     
- ```
+ ```javascript
  gulp.task('zip', function() {
   return gulp.src(['javascripts/jquery.js',
    'javascripts/modernizr.js'])
@@ -173,7 +173,7 @@ gulp.task('script', function() {
 
 ##压缩css
 	const minify = require('gulp-minify-css')
- ```
+ ```javascript
  gulp.task('minify', function() {
   gulp.src('stylesheet/**/*.scss')
     .pipe(sass())
@@ -186,7 +186,7 @@ gulp.task('script', function() {
 
 ##图片优化
 	const imagemin = require('gulp-imagemin')
-```
+```javascript
 gulp.task('imagemin', function() {
   return gulp.src('images/icons/*.{png,jpg}')
     .pipe(gulp.dest('dist/images/icon'))
