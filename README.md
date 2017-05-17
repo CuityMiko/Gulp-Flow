@@ -170,8 +170,8 @@ gulp.task('script', function() {
    .pipe(rename('vendor.min.js'))
    .pipe(gulp.dest('dist/js'))
 })
-
-##压缩css
+```
+## 压缩css
 	const minify = require('gulp-minify-css')
  ```
  
@@ -184,6 +184,7 @@ gulp.task('minify', function() {
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('dist/css'))
 })
+```
 ```
 ## 图片优化
 
